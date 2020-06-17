@@ -1,0 +1,32 @@
+{
+  "name": "menue-client",
+  "version": "1.0.0",
+  "description": "Real-time order management",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "NOUARI Yazid",
+  "license": "ISC",
+  "build": {
+    "appId": "menue.client",
+    "productName": "Client",
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^5.0.3",
+    "electron-builder": "^21.2.0",
+    "electron-icon-maker": "0.0.4"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0",
+    "tinycolor2": "^1.4.1",
+    "tippy.js": "^4.3.5"
+  }
+}

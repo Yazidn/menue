@@ -1,0 +1,38 @@
+.finish-page {
+  display: none;
+  height: 100vh;
+  padding: 20px;
+  align-items: center;
+  justify-items: center;
+  color: var(--text);
+  animation: openpage var(--animations);
+}
+
+.finish-page .finish-ctn {
+  padding: 30px;
+}
+.finish-page .finish-ctn h1 {
+  font-size: 120px;
+  font-weight: 300;
+}
+.finish-page .finish-ctn .order-number {
+  margin-top: -70px;
+  font-size: 220px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.finish-page .finish-ctn p:not(.order-number) {
+  text-align: center;
+}
+.finish-page button {
+  border: none;
+  height: 60px;
+  width: 100%;
+  background: var(--accent);
+  color: var(--btn-text);
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: -40px;
+  margin-bottom: 20px;
+  border-radius: var(--roundness);
+}

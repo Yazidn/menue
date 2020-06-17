@@ -1,0 +1,8 @@
+@import url('../fonts/opensans.css');
+@import url('./all.min.css');
+@import url('./variables.css');
+@import url('./reset.css');
+@import url('./home.css');
+@import url('./inventory.css');
+@import url('./settings.css');
+@import url('./stats.css');

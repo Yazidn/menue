@@ -1,0 +1,59 @@
+.stats-page {
+  display: none;
+  padding: 20px;
+  grid-template-columns: 60px 1fr;
+  height: 100vh;
+  grid-column-gap: 20px;
+  animation: openpage var(--animations);
+}
+
+.statistics {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-gap: 20px;
+}
+
+.statistics .main-bar {
+  background: var(--panel);
+  border-radius: var(--roundness);
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.main-bar p:not(.revenue) {
+  color: var(--text);
+  font-weight: 300;
+  font-size: 20px;
+  padding: 16px;
+  padding-left: 35px;
+}
+
+.main-bar div {
+  height: 60px;
+  display: grid;
+  background: var(--accent);
+  text-align: center;
+  align-content: center;
+  color: var(--btn-text);
+  font-weight: 300;
+  font-size: 30px;
+  border-radius: var(--roundness);
+  padding: 0px 10px;
+  padding-bottom: 3px;
+}
+
+.main-bar div span {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.charts-ctn {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.charts-ctn div {
+  position: relative;
+  background: var(--panel);
+}

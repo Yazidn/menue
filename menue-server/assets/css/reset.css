@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  outline: none;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background: var(--background);
+  overflow: hidden;
+}

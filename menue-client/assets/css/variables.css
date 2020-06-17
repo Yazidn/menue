@@ -1,0 +1,24 @@
+:root {
+  --accent: #ff286c;
+  --accent-hover: #ff3a78;
+  --accent-highlight: #ffecf2;
+  --panel: #f7f7f7;
+  --panel-highlight: #eeeeee;
+  --panel-highlight-variant: #f3f3f3;
+  --roundness: 0px;
+  --background: #fff;
+  --text: #000;
+  --btn-text: #fff;
+  --swal-bg: #fff;
+  --animations: 0.5s;
+}
+
+.dark-theme {
+  --panel: #2b2b2b;
+  --panel-highlight: #313131;
+  --panel-highlight-variant: #383838;
+  --background: #1d1d1d;
+  --text: #fff;
+  --btn-text: #fff;
+  --swal-bg: #2b2b2b;
+}

@@ -1,0 +1,449 @@
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px 1fr;
+  padding: 20px;
+  grid-row-gap: 20px;
+  background: var(--background);
+  height: 100vh;
+  animation: openhome var(--animations);
+}
+
+.home-ctn {
+  display: grid;
+  grid-template-columns: minmax(200px, 250px) 3.5fr;
+  grid-template-rows: auto 1fr auto auto auto;
+  grid-column-gap: 20px;
+  overflow-y: auto;
+}
+
+.home-navbar {
+  width: 100%;
+  grid-row: 1;
+  grid-column: 1 / 3;
+  display: grid;
+  grid-template-columns: 60px auto 60px 60px 60px 60px 60px 60px;
+  align-items: center;
+}
+
+.home-navbar h1 {
+  padding-left: 15px;
+  color: var(--accent);
+  font-family: "Aleo";
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.home-navbar img {
+  padding-left: 15px;
+  height: 30px;
+  cursor: pointer;
+  justify-self: center;
+}
+
+.home-navbar svg {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
+}
+
+.home-navbar div {
+  height: 60px;
+}
+
+.home-navbar button {
+  height: 60px;
+  width: 60px;
+  border: none;
+  color: var(--accent);
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.awaiting {
+  background: var(--panel);
+  grid-row: 2 / 6;
+  grid-column: 1;
+  overflow-y: auto;
+  position: relative;
+}
+
+.awaiting::-webkit-scrollbar {
+  width: 5px;
+}
+.awaiting::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+.awaiting ul {
+  list-style: none;
+}
+
+.modal-open-dim {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  animation: opendim var(--animations);
+}
+
+@keyframes opendim {
+  from {
+    opacity: 0;
+  }
+}
+
+.ao-details-modal {
+  display: none;
+  width: 400px;
+  height: 70vh;
+  border-radius: var(--roundness);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 20px;
+  background: var(--swal-bg);
+  overflow: hidden;
+  z-index: 3;
+  animation: openmodal var(--animations);
+  padding: 20px;
+}
+
+.ao-details-modal h1 {
+  font-weight: 300;
+  color: var(--text);
+}
+
+.ao-details-modal .ul-ctn {
+  overflow-y: auto;
+}
+
+.ao-details-modal .ul-ctn::-webkit-scrollbar {
+  width: 5px;
+}
+.ao-details-modal .ul-ctn::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+.ao-details-modal button {
+  border: none;
+  width: 100%;
+  height: 50px;
+  color: var(--btn-text);
+  background: var(--accent);
+  border-radius: var(--roundness);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.ao-details-dishes {
+  list-style: none;
+}
+
+.ao-details-dishes li {
+  display: grid;
+  grid-template-columns: 50px auto;
+  background: var(--panel-highlight);
+  padding: var(--spacing);
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.ao-details-dishes li:nth-of-type(odd) {
+  background: var(--panel-highlight-variant);
+}
+
+.ao-details-dishes li p {
+  color: var(--text);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ao-details-dishes .dish-img {
+  height: 50px;
+  border-radius: var(--roundness);
+  background-size: cover;
+}
+
+.awaiting ul li {
+  display: grid;
+  grid-template-columns: auto 50px 50px;
+  background: var(--panel-highlight);
+  color: var(--accent);
+  font-size: 20px;
+  padding: var(--spacing);
+  padding-left: 20px;
+  color: var(--text);
+  grid-gap: 20px;
+  align-items: center;
+  font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform-origin: left;
+  animation: coli var(--animations);
+}
+
+@keyframes slidb {
+  from {
+    transform: scaleY(0.5);
+  }
+}
+
+.awaiting ul li:nth-of-type(odd) {
+  background: var(--panel-highlight-variant);
+}
+
+.awaiting ul li:first-of-type {
+  box-shadow: inset 0 0 100px 100px rgba(var(--accent-alt), 0.1);
+}
+
+.awaiting ul li button {
+  border: none;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: var(--roundness);
+}
+
+.current-order-ctn {
+  background: var(--panel);
+  grid-row: 1;
+  grid-column: 2;
+  padding: 20px;
+  border-top-left-radius: var(--roundness);
+  border-top-right-radius: var(--roundness);
+}
+
+.current-order-ctn h1 {
+  color: var(--text);
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.current-order-ctn h1 span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.awaiting-ctn {
+  grid-row: 1;
+  grid-column: 1;
+  background: var(--panel);
+  border-top-left-radius: var(--roundness);
+  border-top-right-radius: var(--roundness);
+  padding: 20px;
+}
+
+.awaiting-ctn h1 {
+  display: none;
+  color: var(--text);
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.awaiting-ctn h1 span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.current-order::-webkit-scrollbar {
+  width: 5px;
+}
+.current-order::-webkit-scrollbar-track {
+  background: var(--panel-highlight);
+}
+.current-order::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+.current-order {
+  background: var(--panel);
+  grid-row: 2;
+  grid-column: 2;
+  overflow-y: auto;
+}
+
+.note-ctn {
+  background: var(--panel);
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.total-price-ctn {
+  background: var(--panel);
+  grid-row: 4;
+  grid-column: 2;
+}
+
+.current-order:empty {
+  text-align: center;
+  padding: 0px 50px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.current-order:empty::before {
+  color: var(--accent);
+  content: "Il n'y a actuellement aucune commande";
+}
+
+.current-order ul {
+  list-style: none;
+}
+
+.current-order ul li {
+  background: var(--panel-highlight);
+  font-size: 24px;
+  font-weight: 300;
+  display: grid;
+  grid-template-columns: 50px auto auto;
+  padding: var(--spacing);
+  grid-gap: 20px;
+  align-items: center;
+  transform-origin: left;
+  animation: coli var(--animations);
+}
+
+@keyframes coli {
+  from {
+    opacity: 0;
+  }
+}
+
+.current-order ul li:nth-of-type(odd) {
+  background: var(--panel-highlight-variant);
+}
+
+@keyframes slidr {
+  from {
+    transform: scale(0.8);
+  }
+}
+
+.current-order ul li .dish-img {
+  border-radius: var(--roundness);
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+
+.current-order ul li p {
+  color: var(--text);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.current-order ul li p span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.current-order ul li .dish-price {
+  font-weight: 400;
+  color: var(--accent);
+  text-align: right;
+  padding-right: 15px;
+}
+
+.current-order ul li .dish-price span {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.client-note {
+  color: var(--text);
+  padding: 20px;
+}
+
+.total-price-ctn {
+  padding: 20px;
+}
+
+.total-price-ctn h1 {
+  font-weight: 400;
+  color: var(--text);
+}
+
+.total-price-ctn h1 span {
+  color: var(--accent);
+}
+
+.total-price-ctn h1 span:not(.total-price) {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.order-btn-ctn {
+  grid-column: 2;
+  grid-row: 5;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+}
+
+.order-btn-ctn button {
+  border: none;
+  height: 50px;
+  width: 100%;
+  background: var(--accent);
+  color: var(--btn-text);
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: var(--roundness);
+}
+
+.qnt {
+  font-weight: 400;
+}
+.qnt::before {
+  content: " x ";
+}
+
+.about-modal {
+  display: none;
+  width: 400px;
+  border-radius: var(--roundness);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--swal-bg);
+  overflow: hidden;
+  z-index: 3;
+  animation: openmodal var(--animations);
+  padding: 40px;
+  color: var(--text);
+  line-height: 2;
+}
+
+.about-modal h1 {
+  color: var(--accent);
+  font-family: "Aleo";
+  font-size: 50px;
+  text-align: center;
+}
+
+.about-modal p:first-of-type {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.about-modal p span {
+  font-weight: 600;
+}

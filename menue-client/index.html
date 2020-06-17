@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menue Client</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <div class="order-page">
+      <div class="awaiting">
+        <div data-tippy-content="En attente" class="order-count">0</div>
+        <button
+          data-tippy-content="Passez à l'étape suivante et confirmez votre commande"
+          class="proceed-btn"
+          onclick="proceedToConfirm()"
+        >
+          Suivant
+        </button>
+      </div>
+
+      <div class="navbar">
+        <button onclick="settings()" data-tippy-content="Réglages">
+          <i class="fas fa-tools"></i>
+        </button>
+        <button onclick="fullscreen()" data-tippy-content="Plein écran">
+          <i class="fas fa-expand"></i>
+        </button>
+        <div class="search-field-ctn">
+          <i class="fas fa-search"></i>
+          <input
+            class="search-field"
+            type="text"
+            placeholder="Chercher"
+            oninput="searchDishes()"
+          />
+        </div>
+        <button
+          onclick="sortBy('abc')"
+          data-tippy-content="Trier par ordre alphabétique"
+        >
+          <i class="fas fa-sort-alpha-down"></i>
+        </button>
+        <button onclick="sortBy('123')" data-tippy-content="Trier par prix">
+          <i class="fas fa-sort-numeric-down"></i>
+        </button>
+      </div>
+
+      <div class="categories">
+        <ul></ul>
+      </div>
+
+      <div class="catalog-ctn"></div>
+    </div>
+
+    <div class="confirm-page">
+      <div class="btn-ctn">
+        <button class="close" onclick="order()" data-tippy-content="Retour">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button
+          data-tippy-content="Envoyez votre commande"
+          class="confirm-btn"
+          onclick="confirmToFinish()"
+        >
+          Suivant
+        </button>
+      </div>
+
+      <div class="order-confirmation">
+        <div class="order-total">
+          <h1>Détails</h1>
+          <p>
+            Total: <span class="total-price">0</span>
+            <span class="currency"></span>
+          </p>
+        </div>
+
+        <div class="confirm-order">
+          <ul></ul>
+        </div>
+
+        <div class="note-ctn">
+          <textarea
+            maxlength="200"
+            name="note"
+            class="note"
+            placeholder="Laisser une note (facultatif)"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="finish-page">
+      <div class="finish-ctn">
+        <h1>Commande n°</h1>
+        <p class="order-number">..</p>
+        <button
+          data-tippy-content="Terminer et revenir à l'écran d'accueil"
+          onclick="finishOrder()"
+        >
+          Terminer
+        </button>
+        <p>utilisez ce numéro pour récupérer votre commande</p>
+      </div>
+    </div>
+
+    <div class="settings-page">
+      <button class="close" onclick="order()" data-tippy-content="Fermer">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="settings-navbar">
+        <h1>Réglages</h1>
+        <button onclick="revertToDefaults()" data-tippy-content="Réinitialiser">
+          <i class="fas fa-history"></i>
+        </button>
+        <button onclick="applySettings()" data-tippy-content="Appliquer">
+          <i class="fas fa-check"></i>
+        </button>
+      </div>
+
+      <div class="settings-ctn">
+        <form id="settings-form">
+          <p>Serveur</p>
+          <input
+            type="text"
+            name="server"
+            value="127.0.0.1"
+            placeholder="Server IP Address"
+          />
+
+          <p>Port</p>
+          <input type="number" name="port" value="3000" placeholder="Port" />
+
+          <p>Devise</p>
+          <input
+            type="text"
+            name="currency"
+            value="DA"
+            placeholder="Currency"
+          />
+
+          <p>Thème</p>
+          <div class="color-ctn">
+            <input data-tippy-content="Couleur" type="color" name="color" />
+            <select name="theme">
+              <option value="light">Clair</option>
+              <option value="dark">Sombre</option>
+            </select>
+          </div>
+          <p>Rondeur</p>
+          <input
+            class="slider"
+            name="roundness"
+            type="range"
+            min="0"
+            max="30"
+          />
+
+          <p>Zoom</p>
+          <input
+            class="slider"
+            name="zoom"
+            step="0.1"
+            type="range"
+            min="0.5"
+            max="1"
+          />
+
+          <p>Animations</p>
+          <input
+            class="slider"
+            name="animations"
+            step="0.1"
+            type="range"
+            min="0"
+            max="1"
+          />
+        </form>
+      </div>
+    </div>
+
+    <script src="./socket.io.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script src="./settings.js"></script>
+    <script src="assets/scripts/render.js"></script>
+    <script src="assets/scripts/index.js"></script>
+    <script src="assets/scripts/navigation.js"></script>
+    <script src="assets/scripts/order.js"></script>
+  </body>
+</html>

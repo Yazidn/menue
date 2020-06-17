@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menue Manage</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body>
+    <div class="home-page">
+      <div class="home-navbar">
+        <svg
+          data-tippy-content="À propos"
+          onclick="about()"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          style="isolation: isolate;"
+          viewBox="0 0 1024 1024"
+          width="1024pt"
+          height="1024pt"
+        >
+          <defs>
+            <linearGradient
+              id="_lgradient_0"
+              x1="0.5"
+              y1="1"
+              x2="0.5000000000000001"
+              y2="0"
+            >
+              <stop offset="0%" style="stop-color: #00bbff;" />
+              <stop offset="100%" style="stop-color: #003cff;" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 741.554 235.09 L 741.554 235.09 C 800.494 235.09 848.346 282.942 848.346 341.883 L 848.346 685.204 C 848.346 743.966 800.639 791.673 741.877 791.673 L 634.762 791.673 L 634.762 341.883 C 634.762 282.942 682.614 235.09 741.554 235.09 Z"
+            style="stroke: none; fill: var(--accent); stroke-miterlimit: 10;"
+          />
+          <defs>
+            <linearGradient
+              id="_lgradient_1"
+              x1="0.5"
+              y1="1"
+              x2="0.5000000000000001"
+              y2="0"
+            >
+              <stop offset="0%" style="stop-color: #ff00f7;" />
+              <stop offset="100%" style="stop-color: #003cff;" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 282.446 235.09 L 282.446 235.09 C 341.386 235.09 389.238 282.942 389.238 341.883 L 389.238 684.881 C 389.238 743.821 341.386 791.673 282.446 791.673 L 175.654 791.673 L 175.654 341.883 C 175.654 282.942 223.506 235.09 282.446 235.09 Z"
+            style="stroke: none; fill: var(--accent); stroke-miterlimit: 10;"
+          />
+          <defs>
+            <linearGradient
+              id="_lgradient_2"
+              x1="0.5"
+              y1="1"
+              x2="0.5000000000000001"
+              y2="0"
+            >
+              <stop offset="0%" style="stop-color: #00fff2;" />
+              <stop offset="100%" style="stop-color: #00ff73;" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 813.098 262.56 L 813.098 262.56 C 856.866 302.035 860.352 369.618 820.877 413.387 L 591.155 668.093 C 551.68 711.862 484.096 715.347 440.328 675.872 L 440.328 675.872 C 396.56 636.397 393.074 568.814 432.549 525.046 L 662.271 270.339 C 701.746 226.57 769.329 223.085 813.098 262.56 Z"
+            style="stroke: none; fill: var(--accent); stroke-miterlimit: 10;"
+          />
+          <defs>
+            <linearGradient
+              id="_lgradient_3"
+              x1="0.5"
+              y1="1"
+              x2="0.5000000000000001"
+              y2="0"
+            >
+              <stop offset="0%" style="stop-color: #ffff00;" />
+              <stop offset="100%" style="stop-color: #ff9100;" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 211.292 261.65 L 211.292 261.65 C 255.253 222.389 322.818 226.206 362.078 270.167 L 590.55 525.996 C 629.811 569.957 625.994 637.522 582.033 676.783 L 582.033 676.783 C 538.072 716.043 470.506 712.226 431.246 668.265 L 202.774 412.436 C 163.514 368.475 167.33 300.91 211.292 261.65 Z"
+            style="stroke: none; fill: var(--accent); stroke-miterlimit: 10;"
+          />
+        </svg>
+
+        <div></div>
+
+        <button
+          onclick="deleteAllOrders()"
+          data-tippy-content="Supprimer toutes les commandes de la base de données"
+        >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <button
+          data-tippy-content="Réinitialiser les identifiants"
+          onclick="resetIds()"
+        >
+          <i class="fas fa-sync"></i>
+        </button>
+        <button onclick="settings()" data-tippy-content="Réglages">
+          <i class="fas fa-tools"></i>
+        </button>
+        <button onclick="stats()" data-tippy-content="Statistiques">
+          <i class="fas fa-chart-pie"></i>
+        </button>
+        <button onclick="inventory()" data-tippy-content="Menu & Catégories">
+          <i class="fas fa-cube"></i>
+        </button>
+        <button onclick="fullscreen()" data-tippy-content="Plein écran">
+          <i class="fas fa-expand"></i>
+        </button>
+      </div>
+
+      <div class="home-ctn">
+        <div class="awaiting-ctn">
+          <h1>En attente: <span>0</span></h1>
+        </div>
+
+        <div class="awaiting">
+          <ul></ul>
+        </div>
+
+        <div class="current-order-ctn"></div>
+
+        <div class="current-order"></div>
+
+        <div class="note-ctn"></div>
+
+        <div class="total-price-ctn"></div>
+
+        <div class="order-btn-ctn">
+          <button
+            data-tippy-content="Annuler la commande en cours"
+            onclick="cancelOrder()"
+          >
+            Annuler la commande
+          </button>
+          <button
+            data-tippy-content="Marquer la commande en cours comme servi"
+            onclick="markAsServed()"
+          >
+            Marquer comme servi
+          </button>
+        </div>
+
+        <div
+          onclick="closeModal('ao-details-modal', 'awaiting-dim')"
+          class="modal-open-dim awaiting-dim"
+        ></div>
+        <div class="ao-details-modal">
+          <h1></h1>
+          <div class="ul-ctn">
+            <ul class="ao-details-dishes"></ul>
+          </div>
+          <button
+            data-tippy-content="Fermer"
+            onclick="closeModal('ao-details-modal', 'awaiting-dim')"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        onclick="closeModal('about-modal', 'about-dim')"
+        class="modal-open-dim about-dim"
+      ></div>
+
+      <div class="about-modal">
+        <h1>menue</h1>
+        <p>v1.0.0</p>
+
+        <p><span>Author:</span> NOUARI Yazid</p>
+        <p><span>Contact:</span> yazidnouari@yahoo.com</p>
+      </div>
+    </div>
+
+    <div class="inventory-page">
+      <button class="close" onclick="home()" data-tippy-content="Fermer">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="navbar dishes-navbar">
+        <h1>Menu</h1>
+        <button
+          onclick="deleteAllDishes()"
+          data-tippy-content="Supprimer tous les plats"
+        >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <button
+          onclick="sortBy('abc')"
+          data-tippy-content="Trier par ordre alphabétique"
+        >
+          <i class="fas fa-sort-alpha-down"></i>
+        </button>
+        <button onclick="sortBy('123')" data-tippy-content="Trier par prix">
+          <i class="fas fa-sort-numeric-down"></i>
+        </button>
+        <button
+          onclick="displaySearchInventory()"
+          data-tippy-content="Chercher"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+        <button
+          onclick="openAddDishModal()"
+          data-tippy-content="Ajouter un plat"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="dishes">
+        <input
+          class="search-dishes-input"
+          type="text"
+          oninput="searchInventory()"
+          placeholder="Chercher"
+        />
+        <ul></ul>
+      </div>
+
+      <div class="navbar categories-navbar">
+        <h1>Catégories</h1>
+        <button
+          onclick="deleteAllCategories()"
+          data-tippy-content="Supprimer toutes les catégories"
+        >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <button
+          onclick="openAddCategoryModal()"
+          data-tippy-content="Créer une catégorie"
+        >
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <div class="categories">
+        <ul></ul>
+      </div>
+
+      <div
+        onclick="closeModal('add-dish-modal', 'add-dish-dim')"
+        class="modal-open-dim add-dish-dim"
+      ></div>
+
+      <div class="add-dish-modal" onkeyup="enter('add-dish-btn')">
+        <form id="add-dish-form" enctype="multipart/form-data">
+          <input type="text" name="name" placeholder="Titre" maxlength="50" />
+
+          <div class="price-category-ctn">
+            <input type="number" name="price" placeholder="Prix" />
+
+            <select name="category"></select>
+          </div>
+
+          <div class="file-ctn">
+            <input type="file" name="dish" id="real-input" />
+            <button
+              data-tippy-content="Choisissez une image"
+              type="button"
+              onclick="chooseImage()"
+            >
+              <i class="fas fa-image"></i>
+            </button>
+            <span class="file-info">Choisissez une image</span>
+          </div>
+
+          <div class="btn-ctn">
+            <button
+              type="button"
+              data-tippy-content="Annuler"
+              onclick="closeModal('add-dish-modal', 'add-dish-dim')"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <button
+              type="button"
+              class="add-dish-btn"
+              data-tippy-content="Confirmer"
+              onclick="createDish()"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        onclick="closeModal('add-category-modal', 'add-category-dim')"
+        class="modal-open-dim add-category-dim"
+      ></div>
+
+      <div class="add-category-modal" onkeyup="enter('add-catg-btn')">
+        <form id="add-category-form" onkeydown="return event.key != 'Enter';">
+          <input type="text" name="title" placeholder="Catégorie" />
+
+          <div class="btn-ctn">
+            <button
+              type="button"
+              data-tippy-content="Annuler"
+              onclick="closeModal('add-category-modal', 'add-category-dim')"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <button
+              type="button"
+              data-tippy-content="Confirmer"
+              class="add-catg-btn"
+              onclick="createCategory()"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        onclick="closeModal('edit-category-modal', 'edit-category-dim')"
+        class="modal-open-dim edit-category-dim"
+      ></div>
+
+      <div class="edit-category-modal" onkeyup="enter('edit-catg-btn')">
+        <form id="edit-category-form" onkeydown="return event.key != 'Enter';">
+          <div class="txt-ctn">
+            <input type="text" name="oldTitle" placeholder="Actuel" disabled />
+            <input type="text" name="title" placeholder="Renommer" />
+          </div>
+
+          <div class="edit-catg-ul-ctn">
+            <ul></ul>
+          </div>
+
+          <div class="btn-ctn">
+            <button
+              type="button"
+              data-tippy-content="Annuler"
+              onclick="closeModal('edit-category-modal', 'edit-category-dim')"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <button
+              type="button"
+              data-tippy-content="Confirmer"
+              class="edit-catg-btn"
+              onclick="editCategory()"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="settings-page">
+      <button class="close" onclick="home()" data-tippy-content="Fermer">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="settings-navbar navbar">
+        <h1>Réglages</h1>
+        <button onclick="revertToDefaults()" data-tippy-content="Réinitialiser">
+          <i class="fas fa-history"></i>
+        </button>
+        <button onclick="applySettings()" data-tippy-content="Appliquer">
+          <i class="fas fa-check"></i>
+        </button>
+      </div>
+
+      <div class="settings-ctn">
+        <form id="settings-form">
+          <p>Marque</p>
+          <input
+            type="text"
+            name="shop"
+            value="Dinnert"
+            placeholder="Votre marque"
+          />
+
+          <p>Serveur</p>
+          <input
+            type="text"
+            name="server"
+            value="127.0.0.1"
+            placeholder="Adresse IP du serveur"
+          />
+
+          <p>Port</p>
+          <input type="number" name="port" value="3000" placeholder="Port" />
+
+          <p>Devise</p>
+          <input type="text" name="currency" value="DA" placeholder="Devise" />
+
+          <p>Statistiques</p>
+          <div class="stats-ctn">
+            <select name="chart1">
+              <option value="bar">Barre</option>
+              <option value="line">Ligne</option>
+              <option value="radar">Radar</option>
+              <option value="doughnut">Donut</option>
+              <option value="pie">Circulaire</option>
+              <option value="polarArea">Zone polaire</option>
+              <option value="bubble">Bulle</option>
+            </select>
+
+            <select name="chart2">
+              <option value="bar">Barre</option>
+              <option value="line">Ligne</option>
+              <option value="radar">Radar</option>
+              <option value="doughnut">Donut</option>
+              <option value="pie">Circulaire</option>
+              <option value="polarArea">Zone polaire</option>
+              <option value="bubble">Bulle</option>
+            </select>
+          </div>
+
+          <p>Thème</p>
+          <div class="color-ctn">
+            <input data-tippy-content="Couleur" type="color" name="color" />
+            <select name="theme">
+              <option value="light">Clair</option>
+              <option value="dark">Sombre</option>
+            </select>
+          </div>
+          <p>Rondeur</p>
+          <input
+            class="slider"
+            name="roundness"
+            step="5"
+            type="range"
+            min="0"
+            max="30"
+          />
+
+          <p>Espacement</p>
+          <input
+            class="slider"
+            name="spacing"
+            type="range"
+            step="5"
+            min="0"
+            max="10"
+          />
+
+          <p>Zoom</p>
+          <input
+            class="slider"
+            name="zoom"
+            step="0.1"
+            type="range"
+            min="0.5"
+            max="1"
+          />
+
+          <p>Animations</p>
+          <input
+            class="slider"
+            name="animations"
+            step="0.1"
+            type="range"
+            min="0"
+            max="1"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="stats-page">
+      <button class="close" onclick="home()" data-tippy-content="Fermer">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="statistics">
+        <div class="main-bar">
+          <p>Revenu</p>
+          <div><p class="revenue"></p></div>
+
+          <p>Plats</p>
+          <div class="all-dishes"></div>
+
+          <p>Plats disponibles</p>
+          <div class="available-dishes"></div>
+        </div>
+        <div class="charts-ctn">
+          <div>
+            <canvas id="chart-1"></canvas>
+          </div>
+
+          <div>
+            <canvas id="chart-2"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./socket.io.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script src="assets/scripts/home.js"></script>
+    <script src="./settings.js"></script>
+    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/scripts/navigation.js"></script>
+    <script src="assets/scripts/inventory.js"></script>
+    <script src="assets/scripts/stats.js"></script>
+    <script src="assets/scripts/render.js"></script>
+  </body>
+</html>

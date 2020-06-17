@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  outline: none;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+button,
+input {
+  font-family: "Open Sans", sans-serif;
+}
+button {
+  font-weight: 400 !important;
+}
+i {
+  pointer-events: none;
+}
+.swal-modal {
+  overflow: hidden;
+  background: var(--swal-bg);
+  border-radius: var(--roundness) !important;
+}
+
+.swal-title {
+  color: var(--text);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.swal-text {
+  color: var(--text);
+  margin-top: 5px;
+  text-align: center;
+}
+
+.swal-footer {
+  margin: 0;
+}
+
+.swal-button {
+  background: var(--accent);
+  color: var(--btn-text) !important;
+  box-shadow: none !important;
+  border-radius: var(--roundness);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+}
+
+button {
+  transition: 0.1s;
+}
+
+button:active {
+  transform: scale(0.98);
+  transition: 0.1s;
+}
+
+@keyframes openpage {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.tippy-tooltip.menue-theme {
+  background-color: var(--accent);
+  color: var(--btn-text);
+}
+
+.tippy-tooltip.menue-theme[data-animatefill] {
+  background-color: transparent;
+}
+
+.tippy-tooltip.menue-theme .tippy-backdrop {
+  background-color: var(--accent);
+}
